@@ -28,22 +28,21 @@ gulp.task('images', ['clean'], function() {
     // Pass in options to the task
     .pipe(image())
     // .pipe(gulp.dest('build/img'))
-    .pipe(gulp.dest('build/views/image'));
+    .pipe(gulp.dest('dist/views/image'));
 });
 
-// Minify and copy all JavaScript with sourcemaps
+// Minify the JavaScript files
 gulp.task('scripts', ['clean'], function() {
   return gulp.src(paths.scripts)
-      .pipe(uglify())
-      // .pipe(concat('all.min.js'))
-    .pipe(gulp.dest('build/js'));
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'));
 });
 
 // Minify the CSS styles
 gulp.task('styles', ['clean'], function() {
   return gulp.src(paths.styles)
-      .pipe(csso())
-    .pipe(gulp.dest('build/js'));
+    .pipe(csso())
+    .pipe(gulp.dest('dist/css'));
 });
 
 // Run the appropriate task whenever one of its files change

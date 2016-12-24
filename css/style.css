@@ -5,6 +5,24 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: none;
 }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'),
+    url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'),
+    local('OpenSans-Bold'),
+    url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+}
+
 body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
 body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }
 
@@ -36,6 +54,11 @@ li img { float:left; padding-right: 1em; }
 li p { font-size: 0.9em; font-style: italic; }
 
 pre, code { font-family: monospace, monospace; font-size: 1em; }
+
+@media only screen and (max-width: 480px) {
+  body { font-size: 12px;}
+  header p { padding-left: 4.5em;}
+}
 
 footer {
   padding: 0 0.5em;
