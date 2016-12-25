@@ -7,12 +7,13 @@ to make this page render and scroll as quickly as possible.
 
 
 ## Running the Site
-Follow the steps below to test the optimized the site.
+Follow the steps below to test the optimized site.
 
 1. Clone the [repository]
     (https://github.com/segfault0x0/frontend-nanodegree-mobile-portfolio.git).
 1. Run a local server with Python:
-  Make sure to navigate to the `dist` folder of the repository.
+
+  Make sure to navigate to the `dist` folder of the repository first.
 
   ```bash
   $> cd /path/to/frontend-nanodegree-mobile-portfolio/dist
@@ -31,7 +32,7 @@ In order to test the portfolio's speed with Google's PageSpeed Insights, the
 `ngrok` program can be utilized to make the local Python server public.
 
 1. Download and install [ngrok](https://ngrok.com/) to the `dist` folder in the
-    repository directory, then run the following command.
+    repository directory, then run the following command:
 
   ``` bash
   $> cd /path/to/frontend-nanodegree-mobile-portfolio/dist
@@ -41,7 +42,7 @@ In order to test the portfolio's speed with Google's PageSpeed Insights, the
 
 1. Confirm the website works by copying the public, "Forwarding" URL `ngrok`
     produces and loading it in a web browser.  The webpage should be visible
-    just as it is when using localhost:8080.
+    just as it is when accessed via localhost:8080.
 
 1. Now, visit the [PageSpeed Insights]
     (https://developers.google.com/speed/pagespeed/insights/) site and enter the
