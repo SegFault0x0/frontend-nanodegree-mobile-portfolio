@@ -35,6 +35,7 @@ gulp.task('images', function() {
 
 // Minify the JavaScript files
 gulp.task('scripts', function() {
+  // del(['dist/js']);
   return gulp.src(paths.scripts)
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
