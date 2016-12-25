@@ -59,13 +59,20 @@ Here is a list of the optimizations made to the portfolio:
 
 **views/main.js**
 - Replaced `querySelectorAll` references with `getElementsbyClassName`.
-- (:425) Refactored the `changePizzaSizes` function.
-- (:499) Moved the `scrollTop` call out of the for-loop.
-- (:504) Changed the movement style property to `transform` instead of `left`.
-- (:525) Decreased the number of background pizza elements.
+- Replaced `querySelector` references with `getElementbyId`.
+- Used local variables for loop bounds.
+- Moved the pizzasDiv (containing all randomPizzas elements) outside of the
+  for-loop.
+- Moved the `movingPizzas1` element outside of the loop to create the background
+  pizzas.
+- Refactored the `changePizzaSizes` function.
+- Moved the `scrollTop` call out of the for-loop.
+- Changed the movement style property to `transform` instead of `left`.
+- Added code to programmatically populate the pizzas in the background.
 
 **views/styles.css**
 - Put pizzas on their own layer with the `will-change` property.
+- Added the `backface-visibility` and `transform` properties.
 
 **project-* files**
 - Asynchronously loaded the Google Analytics script.

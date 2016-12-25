@@ -526,24 +526,26 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
+  var elemHeight = 100;
   var cols = 8;
-  var rows = window.screen.height;
+  var rows = window.screen.availHeight / elemHeight;
   var s = 256;
 
+  // Ensure there's always enough pizzas in the background.
+  var visiblePizzas = (rows * cols);
+
   // For optimization, only retrieve the DOM element once outside the loop.
-  var movingPizzas = document.getElementById("movingPizzas1");
+  var movingPizzas = document.getElementById('movingPizzas1');
 
   // For optimization, determine the amount of pizzas that should be visible,
   // and declare elem within the loop initialization.
-  // for (var i = 0, visiblePizzas = (rows * cols), elem; i < visiblePizzas; ++i) {
-  for (var i = 0, elem; i < 50; ++i) {
+  for (var i = 0, elem; i < visiblePizzas; ++i) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
-    elem.style.height = "100px";
+    elem.style.height = elemHeight + 'px';
     elem.style.width = "73.333px";
-    // For optimization, the `left` property is used instead of `basicLeft`.
-    elem.style.left = (i % cols) * s + 'px';
+    elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     movingPizzas.appendChild(elem);
   }
