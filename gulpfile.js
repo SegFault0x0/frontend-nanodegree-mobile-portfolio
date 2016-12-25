@@ -1,29 +1,30 @@
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var csso = require('gulp-csso');
-// var imagemin = require('gulp-imagemin');
+// var inlineCss = require('gulp-inline-css');
 var image = require('gulp-image');
 var del = require('del');
 
 var paths = {
-  scripts: './js/**/*.js',
-  styles: './css/**/*.css',
+  html: 'src/**/*.html',
+  scripts: 'src/js/**/*.js',
+  styles: 'src/css/**/*.css',
   images: [
-    './img/**/*.png',
-    './img/**/*.jpg',
-    './img/**/*.svg',
+    'src/img/**/*.png',
+    'src/img/**/*.jpg',
+    'src/img/**/*.svg',
 // FIXME: Gulp craps out when trying to include images from a different directory
-    // './views/images/**/*.png',
-    // './views/images/**/*.jpg',
-    // './views/images/**/*.svg'
+    // 'src/views/images/**/*.png',
+    // 'src/views/images/**/*.jpg',
+    // 'src/views/images/**/*.svg'
   ],
 };
 
 gulp.task('clean', function() {
-  return del(['build']);
+  return del(['dist']);
 });
 
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
   // return gulp.src(paths.images)
   return gulp.src('views/images/*')
     // Pass in options to the task
@@ -33,19 +34,29 @@ gulp.task('images', ['clean'], function() {
 });
 
 // Minify the JavaScript files
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 });
 
 // Minify the CSS styles
-gulp.task('styles', ['clean'], function() {
-  return gulp.src(paths.styles)
-  // return gulp.src('./views/css/**/*.css')
+gulp.task('styles', function() {
+  return gulp.src('src/views/css/**/*.css')
     .pipe(csso())
-    .pipe(gulp.dest('dist/css'));
-    // .pipe(gulp.dest('dist/views/css'));
+    .pipe(gulp.dest('dist/views/css'));
+});
+
+// Inline the CSS for the main index.html
+// gulp.task('inline', function() {
+//   return gulp.src('src/index.html')
+//     .pipe(inlineCss())
+//     .pipe(gulp.dest('dist/'));
+// });
+
+gulp.task('copy', function() {
+  return gulp.src(paths.html)
+    .pipe(gulp.dest('dist'))
 });
 
 // Run the appropriate task whenever one of its files change
@@ -55,4 +66,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.styles, ['styles']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'images', 'scripts', 'styles', 'inline', 'copy']);
