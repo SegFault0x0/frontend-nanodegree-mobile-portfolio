@@ -12,6 +12,7 @@ var paths = {
     './img/**/*.png',
     './img/**/*.jpg',
     './img/**/*.svg',
+// FIXME: Gulp craps out when trying to include images from a different directory
     // './views/images/**/*.png',
     // './views/images/**/*.jpg',
     // './views/images/**/*.svg'
@@ -41,8 +42,10 @@ gulp.task('scripts', ['clean'], function() {
 // Minify the CSS styles
 gulp.task('styles', ['clean'], function() {
   return gulp.src(paths.styles)
+  // return gulp.src('./views/css/**/*.css')
     .pipe(csso())
     .pipe(gulp.dest('dist/css'));
+    // .pipe(gulp.dest('dist/views/css'));
 });
 
 // Run the appropriate task whenever one of its files change
@@ -52,4 +55,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.styles, ['styles']);
 });
 
-gulp.task('default', ['watch', 'styles', 'scripts', 'images']);
+gulp.task('default', ['watch']);

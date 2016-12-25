@@ -11,7 +11,8 @@ html {
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'),
-    url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+    local('OpenSans'),
+    url(https://fonts.googleapis.com/css?family=Open+Sans:400) format('woff2');
 }
 
 @font-face {
@@ -20,7 +21,7 @@ html {
   font-weight: 700;
   src: local('Open Sans Bold'),
     local('OpenSans-Bold'),
-    url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+    url(https://fonts.googleapis.com/css?family=Open+Sans:700) format('woff2');
 }
 
 body { margin: 0; font-size: 14px; line-height: 1.61; font-weight: 400; }
