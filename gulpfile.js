@@ -10,13 +10,13 @@ var paths = {
   scripts: 'src/js/**/*.js',
   styles: 'src/css/**/*.css',
   images: [
-    'src/img/**/*.png',
-    'src/img/**/*.jpg',
-    'src/img/**/*.svg',
+    // 'src/img/**/*.png',
+    // 'src/img/**/*.jpg',
+    // 'src/img/**/*.svg',
 // FIXME: Gulp craps out when trying to include images from a different directory
-    // 'src/views/images/**/*.png',
-    // 'src/views/images/**/*.jpg',
-    // 'src/views/images/**/*.svg'
+    'src/views/images/**/*.png',
+    'src/views/images/**/*.jpg',
+    'src/views/images/**/*.svg'
   ],
 };
 
@@ -26,7 +26,7 @@ gulp.task('clean', function() {
 
 gulp.task('images', function() {
   // return gulp.src(paths.images)
-  return gulp.src('views/images/*')
+  return gulp.src('src/views/images/**/*')
     // Pass in options to the task
     .pipe(image())
     // .pipe(gulp.dest('build/img'))
